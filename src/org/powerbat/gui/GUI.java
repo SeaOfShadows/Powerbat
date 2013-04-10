@@ -32,7 +32,7 @@ public class GUI extends JFrame {
      * @since 1.0
      */
     public GUI() {
-        super("");
+        super("Powerbat v" + Updater.clientVersion());
         final JPanel main = new JPanel(new BorderLayout());
         final JPanel content = new JPanel(new BorderLayout());
         final JPanel mainpane = new JPanel();
