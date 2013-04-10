@@ -134,7 +134,6 @@ public class ResultsTable extends JTable implements TableCellRenderer {
             if (row <= resultsCorrect.length) {
                 label.setForeground(resultsCorrect[row - 1] ? CORRECT : Color.RED);
             }
-            Color.gray.darker();
         }
         return label;
     }
