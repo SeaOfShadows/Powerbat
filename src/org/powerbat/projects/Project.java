@@ -70,6 +70,7 @@ public class Project {
     }
 
     /**
+     * This is used for loading dynamic files, including compiled files and soon to be XML/CSS files
      *
      * @return   The name of the Runner
      */
@@ -157,21 +158,51 @@ public class Project {
         return version;
     }
 
+    /**
+     * Used in displaying the Runner and sorting by difficulty
+     *
+     * @return The category as a <tt>String</tt>
+     */
+
     public String getCategory() {
         return category;
     }
+
+    /**
+     * Returns the runner class for reflection to run the user-provided code
+     *
+     * @return the Class instance of the loaded Runner
+     */
 
     public Class<?> getRunner() {
         return runner;
     }
 
+    /**
+     * Hashing for adding to a <tt>HashMap</tt> without overriding version sets
+     *
+     * @return hash code based off the name, file and instructions.
+     */
+
     public int hashCode() {
         return name.hashCode() * 31 + file.hashCode() * 17 - instructions.hashCode() * 3;
     }
 
+    /**
+     * Used to filter complete projects and displaying detailed information about the runner
+     *
+     * @return whether or not the project is complete
+     */
+
     public boolean isComplete() {
         return complete;
     }
+
+    /**
+     * Used only internally during execution of code.
+     *
+     * @param complete <tt>boolean</tt> representing if the project was 100% successful and complete.
+     */
 
     public void setComplete(boolean complete) {
         this.complete = complete;
@@ -183,9 +214,19 @@ public class Project {
         }
     }
 
+    @Override
     public boolean equals(final Object o) {
         return o instanceof Project && o.hashCode() == this.hashCode();
     }
+
+    /**
+     * Saves the code so the user can resume the project at a later time
+     *
+     * Compilation is not required, so non-working code can be accepted.
+     *
+     * @param code The <tt>String</tt> of code to save
+     * @return <tt>true</tt> if it saved correctly.
+     */
 
     public boolean save(final String code) {
         try {
@@ -196,6 +237,12 @@ public class Project {
             return false;
         }
     }
+
+    /**
+     * Used when code can't be loaded or the project is restarted
+     *
+     * @return <tt>String</tt> of the basic skeleton as read from the manifest
+     */
 
     public String getSkeleton() {
         return "public class " + className + " {\n\t\n\tpublic " + method + "{\n\t\n\t}\n\n}";
