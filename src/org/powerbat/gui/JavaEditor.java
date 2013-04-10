@@ -1,8 +1,6 @@
 package org.powerbat.gui;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -16,14 +14,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextPane;
+import javax.swing.*;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 
@@ -75,9 +66,10 @@ public class JavaEditor extends JPanel implements KeyListener, ActionListener, F
 
         instructions = new JTextArea();
         textPane = new JTextPane();
-        final JButton button = new JButton(
-                "<html><head><style>p.padding {padding-left:4cm; padding-right:4cm;}</style></head><body><p class=\"padding\">Run</p></body></html>");
+        final JButton button = new JButton("Run");
+        button.setHorizontalTextPosition(SwingConstants.CENTER);
 
+        button.setPreferredSize(new Dimension(200, 30));
         button.setToolTipText("Runs the project. (Ctrl+R)");
 
         clear = new JButton("Clear Project");
