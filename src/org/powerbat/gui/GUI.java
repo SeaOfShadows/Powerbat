@@ -39,6 +39,8 @@ public class GUI extends JFrame {
         final JPanel content = new JPanel(new BorderLayout());
         final JPanel mainpane = new JPanel();
         final ProjectSelector selector = new ProjectSelector();
+        final JPanel homeFill = new JPanel();
+        final JLabel home = new JLabel("Home", JLabel.CENTER);
 
         tabs = new JTabbedPane();
 
@@ -57,8 +59,6 @@ public class GUI extends JFrame {
         content.add(selector, BorderLayout.CENTER);
 
         mainpane.setOpaque(false);
-        final JPanel homeFill = new JPanel();
-        final JLabel home = new JLabel("Home", JLabel.CENTER);
         homeFill.setLayout(new BorderLayout());
         homeFill.setPreferredSize(TAB_SIZE);
         homeFill.add(home, SwingConstants.CENTER);
@@ -159,6 +159,8 @@ public class GUI extends JFrame {
         final JavaEditor cur = tabByName(name);
         if (cur != null) {
             tabs.remove(cur);
+            cur.removeAll();
+            System.gc();
             return;
         }
         System.err.println("Failed to close tab " + name);
