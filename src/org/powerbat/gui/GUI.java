@@ -24,6 +24,8 @@ public class GUI extends JFrame {
 
     private static JTabbedPane tabs;
 
+    private static final Dimension TAB_SIZE = new Dimension(170, 30);
+
     /**
      * Creates a new GUI instance. Should only be done once per
      * <tt>Runtime</tt>. This will set all listeners and handle the
@@ -55,8 +57,15 @@ public class GUI extends JFrame {
         content.add(selector, BorderLayout.CENTER);
 
         mainpane.setOpaque(false);
-        mainpane.add(new JLabel(
-                "<html><head><style>p.padding {padding-left:50px; padding-right:50px;}</style></head><body><p class=\"padding\">Home</p></body></html>"));
+        final JPanel homeFill = new JPanel();
+        final JLabel home = new JLabel("Home", JLabel.CENTER);
+        homeFill.setLayout(new BorderLayout());
+        homeFill.setPreferredSize(TAB_SIZE);
+        homeFill.add(home, SwingConstants.CENTER);
+        homeFill.setOpaque(false);
+        home.setOpaque(false);
+
+        mainpane.add(homeFill);
         tabs.setTabPlacement(SwingConstants.LEFT);
         tabs.add(content, tabs.getTabCount());
         tabs.setTabComponentAt(tabs.getTabCount() - 1, mainpane);
@@ -99,7 +108,7 @@ public class GUI extends JFrame {
             main.add(button, BorderLayout.EAST);
             main.add(pane, BorderLayout.CENTER);
             main.setOpaque(false);
-            main.setPreferredSize(new Dimension(170, 30));
+            main.setPreferredSize(TAB_SIZE);
 
             label.setLocation(pane.getWidth() - label.getWidth(), pane.getY());
 
