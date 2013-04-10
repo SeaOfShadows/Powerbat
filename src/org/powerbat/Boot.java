@@ -19,22 +19,9 @@ import java.lang.reflect.InvocationTargetException;
  * 'Good standing'. Helping others for free. Give what you can and take what you
  * must. From everything to the CustomClassLoader class to the Project class,
  * everything here was made for you, the user. I hope you have a great time
- * running this application. <br>
+ * running this application.
  * <br>
- * {@code
- * Powerbat - Program to help teach users Java. Copyright (C) 2013 Naux
- * <p/>
- * This program is free software: you can redistribute it and/or modify it under
- * the terms of the GNU General Public License as published by the Free Software
- * Foundation, either version 3 of the License, or (at your option) any later
- * version. <br>
- * This program is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
- * details. <br>
- * You should have received a copy of the GNU General Public License along with
- * this program. If not, see http://opensource.org/licenses/gpl-3.0.html.}
- *
+ * <br>
  * @author Naux
  * @version 1.0
  * @since 1.0
