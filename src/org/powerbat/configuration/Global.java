@@ -65,6 +65,8 @@ public class Global {
      * Used to return the loaded images. These are primarily for internal use
      * only.
      *
+     * TODO: Pack images
+     *
      * @param num The image instance to load.
      * @return Image instance from pre-loaded or defined images.
      * @see Global#CLOSE_IMAGE
