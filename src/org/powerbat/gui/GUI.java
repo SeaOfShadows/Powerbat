@@ -156,10 +156,11 @@ public class GUI extends JFrame {
      */
 
     public synchronized static void removeTab(String name) {
-        final JavaEditor cur = tabByName(name);
+        JavaEditor cur = tabByName(name);
         if (cur != null) {
             tabs.remove(cur);
             cur.removeAll();
+            //cur = null;
             System.gc();
             return;
         }

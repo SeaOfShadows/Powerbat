@@ -39,14 +39,14 @@ public class ProjectData {
      */
 
     public static void loadCurrent() {
-        final HashMap<String, ArrayList<Project>> map = new HashMap<String, ArrayList<Project>>();
+        final HashMap<String, ArrayList<Project>> map = new HashMap<>();
         final File root = new File(Paths.SOURCE);
         if (!root.exists() || root.listFiles() == null) {
             return;
         }
         for (final File parent : root.listFiles()) {
             if (parent.isDirectory()) {
-                final ArrayList<Project> projects = new ArrayList<Project>();
+                final ArrayList<Project> projects = new ArrayList<>();
                 for (final File child : parent.listFiles(CLASS_FILES)) {
                     final String name = child.getName();
                     final int idx = name.indexOf("Runner.class");

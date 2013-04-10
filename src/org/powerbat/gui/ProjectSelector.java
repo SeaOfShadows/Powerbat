@@ -44,6 +44,7 @@ public class ProjectSelector extends JPanel {
                 temp.setToolTipText(project.getName() + toolTip);
             }
         }
+        ProjectData.DATA = null; // No longer need it
         Collections.sort(PROJECTS, new Comparator<ProjectPanel>() {
 
             @Override

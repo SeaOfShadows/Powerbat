@@ -58,6 +58,7 @@ public class Updater {
      */
 
     public static void update() {
+        ProjectData.loadCurrent();
         if (!isInternetReachable()) {
             return;
         }
@@ -94,7 +95,6 @@ public class Updater {
                 System.exit(0);
                 return;
             }
-            ProjectData.loadCurrent();
             final HashMap<String, ArrayList<Project>> data = ProjectData.DATA;
             final String runner = "Runner";
             for (final String key : data.keySet()) {
@@ -115,6 +115,8 @@ public class Updater {
                 }
             }
         }
+        currentRunnersList = null;
+        updatedRunnersList = null;
         ProjectData.loadCurrent();
     }
 
