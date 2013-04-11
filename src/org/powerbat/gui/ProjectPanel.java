@@ -68,9 +68,7 @@ public class ProjectPanel extends JPanel implements Comparable<ProjectPanel> {
         rightPane.add(complete, BorderLayout.CENTER);
         rightPane.setPreferredSize(new Dimension(75, 150));
 
-        setPreferredSize(new Dimension(300, 150));
-        setMinimumSize(getPreferredSize());
-        setMaximumSize(getPreferredSize());
+        setPreferredSize(new Dimension(320, 150));
         setBorder(new BevelBorder(BevelBorder.RAISED));
 
         open.addActionListener(new ActionListener() {

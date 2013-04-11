@@ -1,7 +1,6 @@
 package org.powerbat.gui;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -36,15 +35,14 @@ public class ProjectSelector extends JPanel {
     public ProjectSelector() {
         super(new BorderLayout());
         final String toolTip = " information. Press 'Open' to start it.";
-        final JPanel selector = new JPanel(new GridLayout(0, 2));
+        final JPanel selector = new JPanel(new SelectorLayout(FlowLayout.LEADING, 5, 5));
         for (final String category : ProjectData.DATA.keySet()) {
             for (final Project project : ProjectData.DATA.get(category)) {
                 final ProjectPanel temp = new ProjectPanel(project);
                 PROJECTS.add(temp);
-                temp.setToolTipText(project.getName() + toolTip);
+                temp.setToolTipText(project.getName().concat(toolTip));
             }
         }
-        ProjectData.DATA = null; // No longer need it
         Collections.sort(PROJECTS, new Comparator<ProjectPanel>() {
 
             @Override
