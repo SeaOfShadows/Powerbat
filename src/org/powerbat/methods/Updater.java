@@ -199,12 +199,7 @@ public class Updater {
         Splash.setStatus("Checking connection");
         try {
             new URL(URLs.HOME).openConnection().getContent();
-        } catch (Exception e) {
-            try {
-                new URL("http://www.google.com").openConnection().getContent();
-            } catch (Exception e1) {
-                return false;
-            }
+        } catch (Exception ignored) {
         }
         return true;
     }
