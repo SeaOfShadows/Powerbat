@@ -3,6 +3,7 @@ package org.powerbat;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.swing.Timer;
 
 import org.powerbat.configuration.Global;
 import org.powerbat.configuration.Global.Paths;
@@ -10,6 +11,8 @@ import org.powerbat.gui.GUI;
 import org.powerbat.gui.Splash;
 import org.powerbat.methods.Updater;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
 
 /**
@@ -42,10 +45,17 @@ public class Boot {
         Global.loadImages();
         Splash.setStatus("Loading");
         final Splash splash = new Splash();
+        final Timer repaint = new Timer(20, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                splash.repaint();
+            }
+        });
         try {
             SwingUtilities.invokeAndWait(new Runnable() {
                 public void run() {
                     splash.setVisible(true);
+                    repaint.start();
                 }
             });
         } catch (InterruptedException | InvocationTargetException e) {
@@ -63,6 +73,7 @@ public class Boot {
                     splash.shouldDispose(true);
                     splash.dispose();
                     Splash.setStatus(null);
+                    repaint.stop();
                 } catch (Exception e) {
                     e.printStackTrace();
                     System.exit(0);
