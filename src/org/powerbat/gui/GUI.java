@@ -18,9 +18,7 @@ import org.powerbat.projects.Project;
  * @see GUI#tabByName(String)
  * @since 1.0
  */
-public class GUI extends JFrame {
-
-    private static final long serialVersionUID = 4204914118301301061L;
+public class GUI {
 
     private static JTabbedPane tabs;
 
@@ -34,7 +32,7 @@ public class GUI extends JFrame {
      * @since 1.0
      */
     public GUI() {
-        super("Powerbat v" + Updater.clientVersion());
+        final JFrame frame = new JFrame("Powerbat v" + Updater.clientVersion());
         final JPanel main = new JPanel(new BorderLayout());
         final JPanel content = new JPanel(new BorderLayout());
         final JPanel mainpane = new JPanel();
@@ -44,14 +42,14 @@ public class GUI extends JFrame {
 
         tabs = new JTabbedPane();
 
-        setContentPane(main);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(1000, 600));
-        setMinimumSize(getPreferredSize());
-        setLocationRelativeTo(getParent());
+        frame.setContentPane(main);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(1000, 600));
+        frame.setMinimumSize(frame.getPreferredSize());
+        frame.setLocationRelativeTo(frame.getParent());
 
         try {
-            setIconImage(Global.getImage(Global.ICON_IMAGE));
+            frame.setIconImage(Global.getImage(Global.ICON_IMAGE));
         } catch (Exception e) {
             Splash.setStatus("Downloading icon failed");
         }
@@ -72,7 +70,7 @@ public class GUI extends JFrame {
 
         main.add(tabs);
 
-        setVisible(true);
+        frame.setVisible(true);
         Splash.setStatus("Complete");
     }
 
