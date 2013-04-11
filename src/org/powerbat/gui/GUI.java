@@ -69,7 +69,7 @@ public class GUI {
         tabs.setTabComponentAt(tabs.getTabCount() - 1, mainpane);
 
         main.add(tabs);
-
+        frame.pack();
         frame.setVisible(true);
         Splash.setStatus("Complete");
     }
